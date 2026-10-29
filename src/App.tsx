@@ -3,9 +3,14 @@ import './App.css';
 function App() {
 
   return (
-    <div style={{alignItems:'center'}}>
-      <h1 style={{color:'white'}}>GraphUp</h1>
-      <p style={{color:'white'}}>O desenvolvimento começou</p>
+    <div>
+      <header className="header-home">
+        <h1 style={{color:'white'}}>GraphUp</h1>
+        <h1 style={{color:'white'}}>Graficos</h1>
+        <h1 style={{color:'white'}}>Dados</h1>
+        <h1 style={{color:'white'}}>Estatísticas</h1>
+      </header>
+      
     </div>
   )
 
