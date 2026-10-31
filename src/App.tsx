@@ -1,4 +1,5 @@
-import './App.css';
+import './styles/tokens.css'
+import './styles/global.css';
 
 function App() {
 
@@ -10,7 +11,6 @@ function App() {
         <h1 style={{color:'white'}}>Dados</h1>
         <h1 style={{color:'white'}}>Estatísticas</h1>
       </header>
-      
     </div>
   )
 
