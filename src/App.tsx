@@ -2,7 +2,6 @@ import './styles/tokens.css'
 import './styles/global.css';
 
 function App() {
-
   return (
     <div>
       <header className="header-home">
@@ -13,7 +12,6 @@ function App() {
       </header>
     </div>
   )
-
 }
 
 export default App;
