@@ -1,9 +1,44 @@
 body {
     background-color: var(--color-bg);
+    color: white;
 }
 
-.header-home {
-    background-color: #000000;
-    display: flex;
-    justify-content: space-around;
+.app-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-6) var(--space-4);
+}
+
+.sidebar-brand {
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: var(--space-8);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+.nav-link.active {
+  background: var(--color-surface-raised);
+  color: var(--color-primary);
+}
+
+.app-content {
+  padding: var(--space-8);
 }
