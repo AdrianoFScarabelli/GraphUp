@@ -1,6 +1,7 @@
 body {
-    background-color: var(--color-bg);
-    color: white;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: white;
 }
 
 .app-layout {
@@ -10,6 +11,9 @@ body {
 }
 
 .sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   background: var(--color-surface);
   border-right: 1px solid var(--color-border);
   padding: var(--space-6) var(--space-4);
