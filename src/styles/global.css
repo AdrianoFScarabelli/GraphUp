@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
@@ -45,4 +51,74 @@ body {
 
 .app-content {
   padding: var(--space-8);
+}
+
+/*Estilos DashboardPage*/
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.page-header h1 {
+  font-size: 1.75rem;
+}
+
+.page-subtitle {
+  color: var(--color-text-muted);
+}
+
+.select {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font: inherit;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.summary-card,
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.summary-card-label {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.summary-card-value {
+  font-size: 1.75rem;
+}
+
+.summary-card-value--income {
+  color: var(--color-income);
+}
+
+.summary-card-value--expense {
+  color: var(--color-expense);
+}
+
+.card h2 {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-4);
 }
