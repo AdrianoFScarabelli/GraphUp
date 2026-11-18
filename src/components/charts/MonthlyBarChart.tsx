@@ -30,7 +30,13 @@ export function MonthlyBarChart({ data }: MonthlyBarChartProps) {
 
   return (
     <ResponsiveContainer width="100%" height={320}>
-      <BarChart data={chartData}>
+
+      <BarChart
+        data={chartData}
+        barGap={8}             // Espaço entre a barra de Receitas e a de Despesas
+        barCategoryGap="15%"   // Espaço entre os grupos de cada mês (jun/26, jul/26...)
+      >
+        
         <CartesianGrid stroke="var(--color-border)" vertical={false} />
         <XAxis dataKey="label" stroke="var(--color-text-muted)" />
         <YAxis
@@ -47,9 +53,21 @@ export function MonthlyBarChart({ data }: MonthlyBarChartProps) {
             borderRadius: 12,
           }}
         />
-        <Legend />
-        <Bar dataKey="Receitas" fill="var(--color-income)" radius={[6, 6, 0, 0]} />
-        <Bar dataKey="Despesas" fill="var(--color-expense)" radius={[6, 6, 0, 0]} />
+
+        <Legend
+          iconType="circle"                     // Troca o quadrado por círculo
+          iconSize={20}                         // Tamanho do ícone
+          wrapperStyle={{ paddingTop: "24px" }} // Distância entre o gráfico e a legenda
+          itemSorter={() => 0}
+          formatter={(value) => (
+            <span style={{ color: "var(--color-text)", marginLeft: 4 }}>
+              {value}
+            </span>
+          )}
+        />
+        
+          <Bar dataKey="Receitas" fill="var(--color-income)" radius={[6, 6, 0, 0]} />
+          <Bar dataKey="Despesas" fill="var(--color-expense)" radius={[6, 6, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );

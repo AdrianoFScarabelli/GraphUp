@@ -1,7 +1,17 @@
-*,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -20,6 +30,7 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
+  width: 240px;
   background: var(--color-surface);
   border-right: 1px solid var(--color-border);
   padding: var(--space-6) var(--space-4);
@@ -42,6 +53,10 @@ body {
   text-decoration: none;
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
+}
+
+.nav-link:hover {
+  background: var(--color-surface-raised);
 }
 
 .nav-link.active {
@@ -72,12 +87,27 @@ body {
 }
 
 .select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   background: var(--color-surface);
   color: var(--color-text);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-4);
+  padding: 8px 36px 8px 16px;
   font: inherit;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+select:hover,
+select:focus {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  outline: none;
 }
 
 .summary-grid {
@@ -120,5 +150,12 @@ body {
 
 .card h2 {
   font-size: 1.125rem;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.recharts-legend-item {
+  margin-right: 100px !important;
+}
+.recharts-legend-item:last-child {
+  margin-right: 0 !important;
 }
