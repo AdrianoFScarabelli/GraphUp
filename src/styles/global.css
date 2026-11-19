@@ -37,8 +37,8 @@ body {
 }
 
 .sidebar-brand {
-  color: var(--color-primary);
-  font-weight: 700;
+  height: 50px;
+  width: 160px;
   margin-bottom: var(--space-8);
 }
 
@@ -53,6 +53,7 @@ body {
   text-decoration: none;
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
+  font-weight: 600;
 }
 
 .nav-link:hover {
