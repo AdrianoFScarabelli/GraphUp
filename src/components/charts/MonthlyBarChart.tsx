@@ -11,6 +11,7 @@ import {
 import type { MonthlySummary } from "../../types/summary";
 import { formatCurrency } from "../../utils/currency";
 import { formatMonthLabel } from "../../utils/dates";
+import { tooltipStyle } from "./chartStyles";
 
 const compact = new Intl.NumberFormat("pt-BR", {
   notation: "compact",
@@ -33,8 +34,8 @@ export function MonthlyBarChart({ data }: MonthlyBarChartProps) {
 
       <BarChart
         data={chartData}
-        barGap={8}             // Espaço entre a barra de Receitas e a de Despesas
-        barCategoryGap="15%"   // Espaço entre os grupos de cada mês (jun/26, jul/26...)
+        barGap={8}
+        barCategoryGap="15%"
       >
         
         <CartesianGrid stroke="var(--color-border)" vertical={false} />
@@ -47,17 +48,13 @@ export function MonthlyBarChart({ data }: MonthlyBarChartProps) {
         <Tooltip
           cursor={{ fill: "rgba(255, 255, 255, 0.05)" }}
           formatter={(value) => formatCurrency(Number(value))}
-          contentStyle={{
-            background: "var(--color-surface-raised)",
-            border: "1px solid var(--color-border)",
-            borderRadius: 12,
-          }}
+          contentStyle={tooltipStyle}
         />
 
         <Legend
-          iconType="circle"                     // Troca o quadrado por círculo
-          iconSize={20}                         // Tamanho do ícone
-          wrapperStyle={{ paddingTop: "24px" }} // Distância entre o gráfico e a legenda
+          iconType="circle"
+          iconSize={20}
+          wrapperStyle={{ paddingTop: "24px" }}
           itemSorter={() => 0}
           formatter={(value) => (
             <span style={{ color: "var(--color-text)", marginLeft: 4 }}>

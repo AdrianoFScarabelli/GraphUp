@@ -2,11 +2,13 @@ import { useMemo, useState } from "react";
 import { useTransactions } from "../hooks/useTransactions";
 import { SummaryCard } from "../components/ui/SummaryCard";
 import { MonthlyBarChart } from "../components/charts/MonthlyBarChart";
+import { CategoryDonutChart } from "../components/charts/CategoryDonutChart";
 import { formatCurrency } from "../utils/currency";
 import { formatMonthLabel, getCurrentMonthKey } from "../utils/dates";
 import {
   filterByMonth,
   getAvailableMonths,
+  getExpensesByCategory,
   getMonthlySummaries,
   getTotals,
 } from "../utils/summaries";
@@ -22,9 +24,16 @@ export function DashboardPage() {
     ? selectedMonth
     : (months[0] ?? selectedMonth);
 
-  const totals = useMemo(
-    () => getTotals(filterByMonth(transactions ?? [], activeMonth)),
+  const monthTransactions = useMemo(
+    () => filterByMonth(transactions ?? [], activeMonth),
     [transactions, activeMonth],
+  );
+
+  const totals = useMemo(() => getTotals(monthTransactions), [monthTransactions]);
+
+  const expensesByCategory = useMemo(
+    () => getExpensesByCategory(monthTransactions),
+    [monthTransactions],
   );
 
   const monthly = useMemo(() => getMonthlySummaries(transactions ?? []), [transactions]);
@@ -64,9 +73,16 @@ export function DashboardPage() {
         <SummaryCard label="Despesas" value={formatCurrency(totals.expense)} variant="expense" />
       </section>
 
-      <section className="card">
-        <h2>Receitas vs. despesas</h2>
-        <MonthlyBarChart data={monthly} />
+      <section className="charts-grid">
+        <div className="card">
+          <h2>Receitas vs. despesas</h2>
+          <MonthlyBarChart data={monthly} />
+        </div>
+
+        <div className="card">
+          <h2>Despesas por categoria</h2>
+          <CategoryDonutChart data={expensesByCategory} />
+        </div>
       </section>
     </div>
   );

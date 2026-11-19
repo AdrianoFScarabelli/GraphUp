@@ -1,4 +1,3 @@
-// src/utils/summaries.ts
 import type { Transaction } from "../types/transaction";
 import type { MonthlySummary, CategoryTotal } from "../types/summary";
 import { getMonthKey } from "./dates";
