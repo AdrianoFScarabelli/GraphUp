@@ -3,6 +3,11 @@ const brl = new Intl.NumberFormat("pt-BR", {
     currency: "BRL",
 });
 
+const compact = new Intl.NumberFormat("pt-BR", {
+  notation: "compact",
+  maximumFractionDigits: 1,
+});
+
 export const formatCurrency = (cents: number): string => brl.format(cents / 100);
 
 // Para o formulário: "1.234,56" ou "1234,56" -> 123456 (centavos)
@@ -15,3 +20,6 @@ export function parseCurrencyToCents(input: string): number {
   const value = Number(normalized);
   return Number.isFinite(value) ? Math.round(value * 100) : 0;
 }
+
+export const formatCompactCurrency = (cents: number): string =>
+  `R$ ${compact.format(cents / 100)}`;

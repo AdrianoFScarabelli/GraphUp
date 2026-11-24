@@ -1,13 +1,17 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { useTransactions } from "../hooks/useTransactions";
 import { SummaryCard } from "../components/ui/SummaryCard";
 import { MonthlyBarChart } from "../components/charts/MonthlyBarChart";
 import { CategoryDonutChart } from "../components/charts/CategoryDonutChart";
+import { BalanceEvolutionChart } from "../components/charts/BalanceEvolutionChart";
+import { RecentTransactions } from "../components/dashboard/RecentTransactions";
 import { formatCurrency } from "../utils/currency";
 import { formatMonthLabel, getCurrentMonthKey } from "../utils/dates";
 import {
   filterByMonth,
   getAvailableMonths,
+  getBalanceEvolution,
   getExpensesByCategory,
   getMonthlySummaries,
   getTotals,
@@ -37,6 +41,8 @@ export function DashboardPage() {
   );
 
   const monthly = useMemo(() => getMonthlySummaries(transactions ?? []), [transactions]);
+
+  const evolution = useMemo(() => getBalanceEvolution(transactions ?? []), [transactions]);
 
   if (isPending) return <p>Carregando...</p>;
   if (isError) return <p>Não foi possível carregar as transações.</p>;
@@ -82,6 +88,23 @@ export function DashboardPage() {
         <div className="card">
           <h2>Despesas por categoria</h2>
           <CategoryDonutChart data={expensesByCategory} />
+        </div>
+      </section>
+
+      <section className="charts-grid">
+        <div className="card">
+          <h2>Saldo acumulado</h2>
+          <BalanceEvolutionChart data={evolution} />
+        </div>
+
+        <div className="card">
+          <div className="card-header">
+            <h2>Últimas transações</h2>
+            <Link to="/app/transacoes" className="card-link">
+              Ver todas
+            </Link>
+          </div>
+          <RecentTransactions transactions={monthTransactions} />
         </div>
       </section>
     </div>

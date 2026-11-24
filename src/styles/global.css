@@ -238,3 +238,84 @@ select:focus {
 .empty-state {
   color: var(--color-text-muted);
 }
+
+/*Grafico evolucao e card Ultimas transacoes*/
+
+.charts-grid + .charts-grid {
+  margin-top: var(--space-4);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.card-header h2 {
+  margin-bottom: 0;
+}
+
+.card-link {
+  color: var(--color-link);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+.transaction-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.transaction-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.transaction-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.transaction-meta {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.transaction-amount {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.transaction-amount--income {
+  color: var(--color-income);
+}
+
+.transaction-amount--expense {
+  color: var(--color-expense);
+}

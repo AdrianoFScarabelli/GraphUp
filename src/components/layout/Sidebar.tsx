@@ -11,7 +11,7 @@ const links = [
 export function Sidebar() {
   return (
     <aside className="sidebar">
-      <img className="sidebar-brand" src="../public/logoHorizontal.png" alt="imagem da logo horizontal" />
+      <img className="sidebar-brand" src="/logoHorizontal.png" alt="imagem da logo horizontal" />
       <nav className="sidebar-nav">
         {links.map(({ to, label, end }) => (
           <NavLink
