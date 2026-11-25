@@ -33,8 +33,8 @@ export function CategoryDonutChart({ data }: CategoryDonutChartProps) {
               data={chartData}
               dataKey="value"
               nameKey="name"
-              innerRadius={65}
-              outerRadius={95}
+              innerRadius={75}
+              outerRadius={110}
               paddingAngle={2}
               stroke="none"
             >
