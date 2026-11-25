@@ -1,4 +1,4 @@
-import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import { Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import type { CategoryTotal } from "../../types/summary";
 import { getCategoryById } from "../../data/categories";
 import { formatCurrency } from "../../utils/currency";
@@ -20,7 +20,7 @@ export function CategoryDonutChart({ data }: CategoryDonutChartProps) {
     return {
       name: category?.name ?? "Outros",
       value: item.total,
-      color: category?.color ?? "#9aa0b8",
+      fill: category?.color ?? "#9aa0b8",
     };
   });
 
@@ -37,15 +37,10 @@ export function CategoryDonutChart({ data }: CategoryDonutChartProps) {
               outerRadius={110}
               paddingAngle={2}
               stroke="none"
-            >
-              {chartData.map((item) => (
-                <Cell key={item.name} fill={item.color} />
-              ))}
-            </Pie>
+            />
             <Tooltip
               formatter={(value) => formatCurrency(Number(value))}
               contentStyle={tooltipStyle}
-              itemStyle={{ color: "var(--color-text)" }}
             />
           </PieChart>
         </ResponsiveContainer>
@@ -59,7 +54,7 @@ export function CategoryDonutChart({ data }: CategoryDonutChartProps) {
       <ul className="legend-list">
         {chartData.map((item) => (
           <li key={item.name}>
-            <span className="legend-dot" style={{ background: item.color }} />
+            <span className="legend-dot" style={{ background: item.fill }} />
             <span className="legend-name">{item.name}</span>
             <span className="legend-value">
               {formatCurrency(item.value)} ({Math.round((item.value / total) * 100)}%)

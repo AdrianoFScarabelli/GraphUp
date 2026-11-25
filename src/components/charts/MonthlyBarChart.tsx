@@ -53,6 +53,7 @@ export function MonthlyBarChart({ data }: MonthlyBarChartProps) {
         <Tooltip
           cursor={{ fill: "rgba(255, 255, 255, 0.05)" }}
           formatter={(value) => formatCurrency(Number(value))}
+          itemSorter={(item) => (item.name === "Receitas" ? 0 : 1)}
           contentStyle={tooltipStyle}
         />
 
