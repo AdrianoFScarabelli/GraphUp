@@ -23,7 +23,6 @@ export function DashboardPage() {
 
   const months = useMemo(() => getAvailableMonths(transactions ?? []), [transactions]);
 
-  // Se o mês escolhido não existir nos dados, usar o mais recente
   const activeMonth = months.includes(selectedMonth)
     ? selectedMonth
     : (months[0] ?? selectedMonth);
@@ -100,7 +99,7 @@ export function DashboardPage() {
         <div className="card">
           <div className="card-header">
             <h2>Últimas transações</h2>
-            <Link to="/app/transacoes" className="card-link">
+            <Link to={`/app/transacoes?mes=${activeMonth}`} className="card-link">
               Ver todas
             </Link>
           </div>
