@@ -447,17 +447,19 @@ select:focus {
 }
 
 .button-ghost {
-  background: transparent;
+  background: var(--color-surface);
   color: var(--color-text);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-4);
   font: inherit;
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .button-ghost:hover:not(:disabled) {
-  background: var(--color-surface-raised);
+  background: var(--color-delete);
+  color: var(--color-text);
 }
 
 .button-ghost:disabled {
@@ -466,7 +468,7 @@ select:focus {
 }
 
 .button-danger {
-  color: var(--color-expense);
+  color: var(--color-delete);
 }
 
 /* Texto só para leitores de tela */

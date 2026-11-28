@@ -11,6 +11,7 @@
   --color-income: var(--color-primary);
   --color-expense: #ff5c6c;
   --color-link: #5aaeff;
+  --color-delete: #DC2626;
 
   /* Cores do texto */
   --color-text: #ffffff;
